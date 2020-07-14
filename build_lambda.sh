@@ -1,8 +1,8 @@
 #!/bin/bash
-# Two environment variables are needed for this script
-#   - REQUIREMENTS_FILE = the filepath to your requirements file relative to your project root (e.g. requirements/common.txt)
-#   - CODE_PATH = the filepath to your manage.py file relative to project root (e.g. backend)
-#   - BUCKET_NAME = the name of the bucket you want the lambda file to live in (e.g. thon-post-dev-lambda)
+# Three environment variables are needed for this script, provided by the Github action inputs
+#   - INPUT_REQUIREMENTS = the filepath to your requirements file relative to your project root (e.g. requirements/common.txt)
+#   - INPUT_CODE = the filepath to your manage.py file relative to project root (e.g. backend)
+#   - INPUT_BUCKET = the name of the bucket you want the lambda file to live in (e.g. thon-post-dev-lambda)
 pip install -r /application/$INPUT_REQUIREMENTS
 mkdir /deps
 
