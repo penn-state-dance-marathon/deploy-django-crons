@@ -1,0 +1,24 @@
+
+name: "Django Deploy Crons"
+description: "Package a Django project into a package for AWS Lambda"
+inputs:
+  code:
+    description: "The path to your project code (the directory containing manage.py)"
+    required: true
+    default:
+  requirements:
+    description: "The path to your pip requirements file"
+    required: true
+    default:
+  bucket:
+    description: "The name of your S3 bucket"
+    require: true
+    default:
+outputs:
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.code }}
+    - ${{ inputs.requirements }}
+    - ${{ inputs.bucket }}
