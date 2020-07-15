@@ -6,6 +6,7 @@ RUN yum install -y unzip \
     && unzip awscliv2.zip \
     && ./aws/install
 
+COPY update_lambda_code.py /update_lambda_code.py
 COPY build_lambda.sh /build_lambda.sh
 RUN chmod +x /build_lambda.sh
 

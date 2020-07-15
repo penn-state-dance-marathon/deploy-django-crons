@@ -29,4 +29,4 @@ zip -r9 /lambda.zip . -x "*/static/*" "*.git*"
 aws s3 cp /lambda.zip s3://$INPUT_BUCKET/lambda.zip
 
 # Update function code
-python update_lambda_code.py
+python /update_lambda_code.py
