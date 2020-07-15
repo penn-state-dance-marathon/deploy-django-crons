@@ -3,9 +3,9 @@
 This action will package a Python 3.8 Django project into a package such that it can run in AWS Lambda. This package will include system-specific compiled binaries that some Python packages utilize.
 
 The following Python packages require native dependencies:
-* `mysqlclient` ->
-* `python3-django-saml` ->
-* `ldap` ->
+* `mysqlclient` -> `???`
+* `python3-django-saml` -> `???`
+* `ldap` -> `???`
 
 ## Inputs 
 ### `application`
@@ -21,8 +21,10 @@ The following Python packages require native dependencies:
 
 ## Example
 ```
-uses: actions/deploy-django-crons@v1
+uses: actions/deploy-django-crons@master
 with:
+  application: 'post'
+  environment: 'dev'
   code: 'backend'
   requirements: 'backend/requirements/common.txt'
   bucket: 'thon-post-dev-lambda'
