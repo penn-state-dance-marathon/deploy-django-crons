@@ -8,6 +8,10 @@ The following Python packages require native dependencies:
 * `ldap` ->
 
 ## Inputs 
+### `application`
+**Required** The tagged application name in AWS of your Lambda functions that will be updated.
+### `environment`
+**Required** The tagged environment name in AWS of your Lambda functions that will be updated.
 ### `code`
 **Required** The path to your Django root (i.e. the directory of your manage.py)
 ### `requirements`
