@@ -7,6 +7,8 @@
 #   - INPUT_APPLICATION = the value for your AWS 'Application' tags
 #   - INPUT_ENVIRONMENT = the value for your AWS 'Environment' tags
 START_DIR=$(pwd)
+echo "Starting dir: $START_DIR"
+ls -al $START_DIR
 pip install -r $START_DIR/$INPUT_REQUIREMENTS
 mkdir /deps
 
