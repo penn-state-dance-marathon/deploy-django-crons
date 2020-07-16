@@ -14,7 +14,9 @@ COPY build_lambda.sh /build_lambda.sh
 RUN chmod +x /build_lambda.sh
 
 RUN mkdir /application
-WORKDIR /application
-COPY . /application
+RUN pwd
+RUN ls -alt
+# WORKDIR /application
+# COPY . /application
 
 ENTRYPOINT ["/build_lambda.sh"]
