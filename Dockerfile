@@ -13,8 +13,4 @@ COPY update_lambda_code.py /update_lambda_code.py
 COPY build_lambda.sh /build_lambda.sh
 RUN chmod +x /build_lambda.sh
 
-# RUN mkdir /application
-# WORKDIR /application
-# COPY . /application
-
 ENTRYPOINT ["/build_lambda.sh"]
