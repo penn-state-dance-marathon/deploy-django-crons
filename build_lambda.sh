@@ -6,9 +6,8 @@
 # Two other environment variables are used by the Python script in the last line
 #   - INPUT_APPLICATION = the value for your AWS 'Application' tags
 #   - INPUT_ENVIRONMENT = the value for your AWS 'Environment' tags
-pwd
-ls -al
-pip install -r /application/$INPUT_REQUIREMENTS
+START_DIR=$(pwd)
+pip install -r $START_DIR/$INPUT_REQUIREMENTS
 mkdir /deps
 
 # Get the Python package files and zip
@@ -24,7 +23,7 @@ cd /deps
 zip -r9 /lambda.zip .
 
 # Zip the application files
-cd /application/$INPUT_CODE
+cd $START_DIR/$INPUT_CODE
 zip -r9 /lambda.zip . -x "*/static/*" "*.git*"
 
 # Upload to S3
