@@ -1,4 +1,4 @@
-FROM 779809321836.dkr.ecr.us-east-2.amazonaws.com/amazonlinux2-python3.8
+FROM jdukewich/amazonlinux2-python3.8:latest
 
 # Install AWS CLI for S3 upload
 RUN yum install -y unzip \
