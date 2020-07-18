@@ -1,3 +1,10 @@
+"""
+This script will update the code for Lambda functions in AWS tagged according
+to the input environment variables:
+    "Application": INPUT_APPLICATION
+    "Environment": INPUT_ENVIRONMENT
+The packaged zip file will be pulled from INPUT_BUCKET/lambda.zip
+"""
 import os
 
 import boto3
@@ -8,6 +15,7 @@ BUCKET = os.environ['INPUT_BUCKET']
 
 
 def main():
+    """Find matching tagged Lambda functions and update their code"""
     client = boto3.client('lambda')
     response = client.list_functions()
     for function in response['Functions']:
