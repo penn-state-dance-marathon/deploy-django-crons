@@ -22,7 +22,6 @@ inputs:
     description: "The name of your S3 bucket"
     require: true
     default:
-outputs:
 runs:
   using: "docker"
   image: "Dockerfile"
