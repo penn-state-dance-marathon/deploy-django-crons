@@ -10,6 +10,7 @@ RUN yum install -y unzip \
 RUN pip install boto3
 
 COPY update_lambda_code.py /update_lambda_code.py
+COPY collectstatic_and_migrate.py /collectstatic_and_migrate.py
 COPY build_lambda.sh /build_lambda.sh
 RUN chmod +x /build_lambda.sh
 
