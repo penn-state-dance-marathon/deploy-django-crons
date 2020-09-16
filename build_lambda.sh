@@ -31,3 +31,8 @@ aws s3 cp /lambda.zip s3://$INPUT_BUCKET/lambda.zip
 
 # Update function code
 python /update_lambda_code.py
+
+# If this is a Zappa deployment, we also want to run Django collectstatic and migrate
+if [ "$INPUT_ZAPPA" = true ]; then
+    python /collectstatic_and_migrate.py
+fi

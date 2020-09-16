@@ -22,6 +22,10 @@ inputs:
     description: "The name of your S3 bucket"
     require: true
     default:
+  zappa:
+    description: "A boolean of whether this project is deployed using Zappa to determine if Django migrations should be run"
+    require: false
+    default: false
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -31,3 +35,4 @@ runs:
     - ${{ inputs.code }}
     - ${{ inputs.requirements }}
     - ${{ inputs.bucket }}
+    - ${{ inputs.zappa }}
