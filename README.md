@@ -17,7 +17,8 @@ The following Python packages require native dependencies:
 **Required** The path to your pip requirements file
 ### `bucket`
 **Required** The name of the S3 bucket you want your Lambda package uploaded to
-
+### `zappa`
+**Optional (default: false)** A boolean of whether or not this is a Zappa project. If so, then this action will also run Django collectstatic and migrations on your lambda function
 ## Example
 ```
 uses: penn-state-dance-marathon/deploy-django-crons@master
@@ -27,4 +28,5 @@ with:
   code: 'backend'
   requirements: 'backend/requirements/common.txt'
   bucket: 'thon-post-dev-lambda'
+  zappa: false
 ```
