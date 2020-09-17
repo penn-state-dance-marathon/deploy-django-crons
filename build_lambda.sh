@@ -6,13 +6,14 @@
 # Two other environment variables are used by the Python script in the last line
 #   - INPUT_APPLICATION = the value for your AWS 'Application' tags
 #   - INPUT_ENVIRONMENT = the value for your AWS 'Environment' tags
+# The variable INPUT_ZAPPA indicates whether or not this is a Zappa project so collectstatic/migrations can be run
 START_DIR=$(pwd)
 pip install -r $START_DIR/$INPUT_REQUIREMENTS
 mkdir /deps
 
 # Get the Python package files and zip
 cd /usr/local/lib/python3.8/site-packages
-zip -r9 /lambda.zip . -x "boto*"
+zip -r9 /lambda.zip . -x "boto*" "pip*"
 
 # Get the C extensions files and zip them
 cp /usr/lib64/libxml* /deps
@@ -24,7 +25,7 @@ zip -r9 /lambda.zip .
 
 # Zip the application files
 cd $START_DIR/$INPUT_CODE
-zip -r9 /lambda.zip . -x "*/static/*" "*.git*"
+zip -r9 /lambda.zip . -x "*.git*"
 
 # Upload to S3
 aws s3 cp /lambda.zip s3://$INPUT_BUCKET/lambda.zip
