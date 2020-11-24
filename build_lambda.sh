@@ -24,8 +24,19 @@ cd /deps
 zip -r9 /lambda.zip .
 
 # Zip the application files
+FILES_TO_EXCLUDE='"*.git*"'
+# If this isn't a Zappa deployment, exclude all static files
+if [ "$INPUT_ZAPPA" = false ]; then
+    FILES_TO_EXCLUDE+=' "*/static/*" "static/*"'
+fi
 cd $START_DIR/$INPUT_CODE
-zip -r9 /lambda.zip . -x "*.git*"
+zip -r9 /lambda.zip . -x $FILES_TO_EXCLUDE
+
+# Include any specific files
+for i in ${INCLUDE_FILES//,/ }
+do
+    zip -r9 /lambda.zip $i
+done
 
 # Upload to S3
 aws s3 cp /lambda.zip s3://$INPUT_BUCKET/lambda.zip

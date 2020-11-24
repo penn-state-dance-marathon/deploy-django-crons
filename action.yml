@@ -26,6 +26,9 @@ inputs:
     description: "A boolean of whether this project is deployed using Zappa to determine if Django migrations should be run"
     require: false
     default: false
+  include_files:
+    description: "A comma-separated list of specific file paths to include (e.g., specific static files)"
+    require: false
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -36,3 +39,4 @@ runs:
     - ${{ inputs.requirements }}
     - ${{ inputs.bucket }}
     - ${{ inputs.zappa }}
+    - ${{ inputs.include_files }}
