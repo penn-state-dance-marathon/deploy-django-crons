@@ -24,13 +24,14 @@ cd /deps
 zip -r9 /lambda.zip .
 
 # Zip the application files
-FILES_TO_EXCLUDE='"*.git*"'
+
+cd $START_DIR/$INPUT_CODE
 # If this isn't a Zappa deployment, exclude all static files
 if [ "$INPUT_ZAPPA" = false ]; then
-    FILES_TO_EXCLUDE+=' "*/static/*" "static/*"'
+    zip -r9 /lambda.zip . -x "*.git*" "static/*" "*/static/*"
+else
+    zip -r9 /lambda.zip . -x "*.git*"
 fi
-cd $START_DIR/$INPUT_CODE
-zip -r9 /lambda.zip . -x $FILES_TO_EXCLUDE
 
 # Include any specific files
 for i in ${INPUT_INCLUDE_FILES//,/ }
