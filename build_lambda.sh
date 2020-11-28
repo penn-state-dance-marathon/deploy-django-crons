@@ -33,7 +33,7 @@ cd $START_DIR/$INPUT_CODE
 zip -r9 /lambda.zip . -x $FILES_TO_EXCLUDE
 
 # Include any specific files
-for i in ${INCLUDE_FILES//,/ }
+for i in ${INPUT_INCLUDE_FILES//,/ }
 do
     zip -r9 /lambda.zip $i
 done
