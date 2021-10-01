@@ -1,4 +1,4 @@
-FROM jdukewich/amazonlinux2-python3.8:latest
+FROM thontechnology/amazonlinux2-python:3.8
 
 # Install AWS CLI for S3 upload
 RUN yum install -y unzip \
