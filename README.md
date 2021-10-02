@@ -5,6 +5,7 @@ This action will package a Python 3.8 Django project into a package such that it
 The following Python packages require native dependencies:
 * `mysqlclient` -> `/usr/lib64/mysql/*`
 * `xmlsec` (dependency of `python3-django-saml`) -> `libxmlsec1.so.1`, `libltdl.so.7`, `libxslt.so.1`, `libxml2.so.2`, `libxmlsec1-openssl.so`
+* `cairo` (dependency of `weasyprint`) -> `libcairo.so`
 
 ## Inputs 
 ### `application`

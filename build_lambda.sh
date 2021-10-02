@@ -20,6 +20,7 @@ cp /usr/lib64/libxml* /deps
 cp -r /usr/lib64/mysql/* /deps
 cp -r /usr/lib64/libxslt* /deps
 cp /usr/lib64/libltdl.so* /deps
+cp /usr/lib64/libcairo* /deps
 cd /deps
 zip -r9 /lambda.zip .
 
