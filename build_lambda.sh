@@ -23,6 +23,7 @@ cp /usr/lib64/libltdl.so* /deps
 cp /usr/lib64/libcairo* /deps
 cp /usr/lib64/libpixman* /deps
 cp /usr/lib64/libfontconfig* /deps
+cp /usr/lib64/libfreetype* /deps
 cd /deps
 zip -r9 /lambda.zip .
 
