@@ -34,6 +34,7 @@ cp /usr/lib64/libGL* /deps
 cp /usr/lib64/libexpat* /deps
 cp /usr/lib64/libuuid* /deps
 cp /usr/lib64/libXau* /deps
+cp /usr/lib64/lib* /deps
 cd /deps
 zip -r9 /lambda.zip .
 
