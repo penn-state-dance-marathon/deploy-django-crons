@@ -19,15 +19,7 @@ zip -r9 /lambda.zip . -x "boto*" "pip*"
 cp /usr/lib64/libxml* /deps
 cp -r /usr/lib64/mysql/* /deps
 cp -r /usr/lib64/libxslt* /deps
-cp /usr/lib64/libltdl.so* /deps
-cp /usr/lib64/libcairo* /deps
-cp /usr/lib64/libpixman* /deps
-cp /usr/lib64/libfontconfig* /deps
-cp /usr/lib64/libfreetype* /deps
-cp /usr/lib64/libEGL* /deps
-cp /usr/lib64/libpng* /deps
-cp /usr/lib64/libxcb* /deps
-cp /usr/lib64/libXrender* /deps
+cp /usr/lib64/lib* /deps
 cd /deps
 zip -r9 /lambda.zip .
 
