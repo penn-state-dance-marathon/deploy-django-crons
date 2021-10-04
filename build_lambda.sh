@@ -26,6 +26,7 @@ cp /usr/lib64/libfontconfig* /deps
 cp /usr/lib64/libfreetype* /deps
 cp /usr/lib64/libEGL* /deps
 cp /usr/lib64/libpng* /deps
+cp /usr/lib64/libxcb* /deps
 cd /deps
 zip -r9 /lambda.zip .
 
