@@ -29,6 +29,7 @@ cp /usr/lib64/libpng* /deps
 cp /usr/lib64/libxcb* /deps
 cp /usr/lib64/libXrender* /deps
 cp /usr/lib64/libX11* /deps
+cp /usr/lib64/libXext* /deps
 cd /deps
 zip -r9 /lambda.zip .
 
