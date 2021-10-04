@@ -22,6 +22,7 @@ cp -r /usr/lib64/libxslt* /deps
 cp /usr/lib64/libltdl.so* /deps
 cp /usr/lib64/libcairo* /deps
 cp /usr/lib64/libpixman* /deps
+cp /usr/lib64/libfontconfig* /deps
 cd /deps
 zip -r9 /lambda.zip .
 
