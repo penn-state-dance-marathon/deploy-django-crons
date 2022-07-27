@@ -20,9 +20,8 @@ def main():
     response = client.list_functions()
     for function in response['Functions']:
         tags = client.list_tags(Resource=function['FunctionArn'])['Tags']
-        if 'Application' in tags and 'Environment' in tags:
-            if (tags['Application'] == APPLICATION and
-                    tags['Environment'] == ENVIRONMENT):
+        if 'Application' in tags and 'Environment' in tags and 'Functionality' in tags:
+            if (tags['Application'] == APPLICATION and tags['Environment'] == ENVIRONMENT and tags['Functionality'] == 'cron'):
                 response = client.update_function_code(
                     FunctionName=function['FunctionArn'],
                     S3Bucket=BUCKET,
