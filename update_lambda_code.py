@@ -3,6 +3,7 @@ This script will update the code for Lambda functions in AWS tagged according
 to the input environment variables:
     "Application": INPUT_APPLICATION
     "Environment": INPUT_ENVIRONMENT
+    "Functionality": cron | application
 The packaged zip file will be pulled from INPUT_BUCKET/lambda.zip
 """
 import os
@@ -21,7 +22,7 @@ def main():
     for function in response['Functions']:
         tags = client.list_tags(Resource=function['FunctionArn'])['Tags']
         if 'Application' in tags and 'Environment' in tags and 'Functionality' in tags:
-            if (tags['Application'] == APPLICATION and tags['Environment'] == ENVIRONMENT and tags['Functionality'] == 'cron'):
+            if (tags['Application'] == APPLICATION and tags['Environment'] == ENVIRONMENT and (tags['Functionality'] == 'cron' or tags['Functionality'] == 'application')):
                 response = client.update_function_code(
                     FunctionName=function['FunctionArn'],
                     S3Bucket=BUCKET,
