@@ -1,4 +1,4 @@
-FROM thontechnology/amazonlinux2-python:3.8
+FROM thontechnology/amazonlinux2-python:3.10
 
 # Install AWS CLI for S3 upload
 RUN yum install -y unzip \
