@@ -9,28 +9,29 @@
 # The variable INPUT_ZAPPA indicates whether or not this is a Zappa project so collectstatic/migrations can be run
 START_DIR=$(pwd)
 pip install -r $START_DIR/$INPUT_REQUIREMENTS
-mkdir /deps
+mkdir -p /deps
 
 # Get the Python package files and zip
-cd /usr/local/lib/python3.8/site-packages
-zip -r9 /lambda.zip . -x "boto*" "pip*"
+cd /usr/lib/python3.12/site-packages || cd /usr/local/lib/python3.12/site-packages
+# Skip symlinks with -y flag to avoid infinite loops
+zip -y -r9 /lambda.zip . -x "boto*" "pip*"
 
 # Get the C extensions files and zip them
 cp /usr/lib64/libxml* /deps
-cp -r /usr/lib64/mysql/* /deps
+find /usr/lib64 -name "*mariadb*" -exec cp {} /deps \;
+find /usr/lib64 -name "*mysql*" -exec cp {} /deps \;
 cp -r /usr/lib64/libxslt* /deps
 cp /usr/lib64/libltdl.so* /deps
 cd /deps
 zip -r9 /lambda.zip .
 
 # Zip the application files
-
 cd $START_DIR/$INPUT_CODE
 # If this isn't a Zappa deployment, exclude all static files
 if [ "$INPUT_ZAPPA" = false ]; then
-    zip -r9 /lambda.zip . -x "*.git*" "static/*" "*/static/*"
+    zip -y -r9 /lambda.zip . -x "*.git*" "static/*" "*/static/*"
 else
-    zip -r9 /lambda.zip . -x "*.git*"
+    zip -y -r9 /lambda.zip . -x "*.git*"
 fi
 
 # Include any specific files
