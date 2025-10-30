@@ -1,7 +1,7 @@
 FROM thontechnology/amazonlinux2-python:3.11
 
 # Install OpenSSL runtime libraries for SSL support in Python
-RUN yum install -y openssl openssl-devel
+RUN yum install -y openssl11 openssl11-devel
 
 # Install AWS CLI for S3 upload
 RUN yum install -y unzip \
