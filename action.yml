@@ -31,7 +31,7 @@ inputs:
     require: false
 runs:
   using: "docker"
-  image: docker://docker.io/thontechnology/deploy-django-crons:master
+  image: docker://docker.io/thontechnology/deploy-django-crons:python-3.11
   args:
     - ${{ inputs.application }}
     - ${{ inputs.environment }}

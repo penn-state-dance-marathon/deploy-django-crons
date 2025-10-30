@@ -12,7 +12,7 @@ pip install -r $START_DIR/$INPUT_REQUIREMENTS
 mkdir /deps
 
 # Get the Python package files and zip
-cd /usr/local/lib/python3.8/site-packages
+cd /usr/local/lib/python3.11/site-packages
 zip -r9 /lambda.zip . -x "boto*" "pip*"
 
 # Get the C extensions files and zip them
