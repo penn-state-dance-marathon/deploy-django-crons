@@ -1,5 +1,8 @@
 FROM thontechnology/amazonlinux2-python:3.11
 
+# Ensure /usr/local/bin comes first in PATH so the python3.11 symlinks take precedence
+ENV PATH="/usr/local/bin:$PATH"
+
 # Install AWS CLI for S3 upload
 RUN yum install -y unzip \
     && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
